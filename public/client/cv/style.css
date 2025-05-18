@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@500&family=Nunito:wght@500&display=swap');
+body {
+  font-family: 'Changa', sans-serif;
+  font-family: 'Nunito', sans-serif;
+  }
+  
+
+  fieldset {
+    border: none;
+    margin-bottom: 20px;
+  }
+  
+  legend {
+    font-weight: bold;
+  }
+  
+  label {
+    display: inline-block;
+    width: 150px;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  textarea {
+    display: block;
+    width: 90%;
+    height: 40px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+  button{
+    display: block;
+    width: 50%;
+    height: 50px;
+    margin: 10px auto;
+    margin-top: 50px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  button:hover{
+    opacity: 0.9;
+  }
+  #new-page-btn{
+    width: 140px;
+    height: 40px;
+    position: relative;
+    left:-45%;
+    bottom:50px;
+    background-color: crimson;
+  }
+  #resume {
+    display: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  form{
+    width: 87%;
+    height: 100%;
+    padding: 50px;
+    margin: auto;
+    box-shadow: 9px 4px 16px 4px rgba(158,158,158,0.75);
+  -webkit-box-shadow: 9px 4px 16px 4px rgba(158,158,158,0.75);
+  -moz-box-shadow: 9px 4px 16px 4px rgba(158,158,158,0.75);
+  border-radius: 10px;
+  margin-bottom: 100px;
+
+  }
+h1{
+  text-align: center;
+  font-weight: bold;
+}
+h1 span{
+  color: #007bff;
+
+}

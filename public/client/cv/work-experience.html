@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Experience</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1><span>Work</span> Experience</h1>
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Experience</title>
+        <link rel="stylesheet" href="style.css">
+      </head>
+      <body>
+        <h1><span>Work</span> Experience</h1>
+        <form>
+          <label for="position">Position:</label>
+          <input type="text" id="position" name="position" required>
+          
+          <label for="company">Company:</label>
+          <input type="text" id="company" name="company" required>
+          
+          <label for="start-date">Start Date:</label>
+          <input type="date" id="start-date" name="start-date" required>
+          
+          <label for="end-date">End Date:</label>
+          <input type="date" id="end-date" name="end-date" required>
+          
+          <label for="job-description">Job Description:</label>
+          <textarea id="job-description" name="job-description" required></textarea>
+          <div id="work-experience-container"></div>
+          <button type="button" id="addWorkBtn">Add Work Experience</button>
+          <button type="submit">Next</button>
+    </form>
+    
+    <script>
+     const form = document.querySelector('form');
+const positionInput = form.querySelector('#position');
+const companyInput = form.querySelector('#company');
+const startDateInput = form.querySelector('#start-date');
+const endDateInput = form.querySelector('#end-date');
+const jobDescriptionInput = form.querySelector('#job-description');
+const addButton = document.querySelector('#addWorkBtn');
+const workExperienceContainer = document.querySelector('#work-experience-container');
+
+addButton.addEventListener('click', function(e) {
+
+  // create a new degreeContainer
+  const degreeContainer = document.createElement('div');
+  degreeContainer.className = 'workContainer';
+
+  // create input elements for the degreeContainer
+  const positionLabel = document.createElement('label');
+  positionLabel.setAttribute('for', 'position');
+  positionLabel.textContent = 'Position:';
+  const positionInputClone = positionInput.cloneNode(true);
+  positionInputClone.value = '';
+
+  const companyLabel = document.createElement('label');
+  companyLabel.setAttribute('for', 'company');
+  companyLabel.textContent = 'Company:';
+  const companyInputClone = companyInput.cloneNode(true);
+  companyInputClone.value = '';
+
+  const startDateLabel = document.createElement('label');
+  startDateLabel.setAttribute('for', 'start-date');
+  startDateLabel.textContent = 'Start Date:';
+  const startDateInputClone = startDateInput.cloneNode(true);
+  startDateInputClone.value = '';
+
+  const endDateLabel = document.createElement('label');
+  endDateLabel.setAttribute('for', 'end-date');
+  endDateLabel.textContent = 'End Date:';
+  const endDateInputClone = endDateInput.cloneNode(true);
+  endDateInputClone.value = '';
+
+  const jobDescriptionLabel = document.createElement('label');
+  jobDescriptionLabel.setAttribute('for', 'job-description');
+  jobDescriptionLabel.textContent = 'Job Description:';
+  const jobDescriptionInputClone = jobDescriptionInput.cloneNode(true);
+  jobDescriptionInputClone.value = '';
+
+  // append the input elements to the degreeContainer
+  degreeContainer.appendChild(positionLabel);
+  degreeContainer.appendChild(positionInputClone);
+  degreeContainer.appendChild(companyLabel);
+  degreeContainer.appendChild(companyInputClone);
+  degreeContainer.appendChild(startDateLabel);
+  degreeContainer.appendChild(startDateInputClone);
+  degreeContainer.appendChild(endDateLabel);
+  degreeContainer.appendChild(endDateInputClone);
+  degreeContainer.appendChild(jobDescriptionLabel);
+  degreeContainer.appendChild(jobDescriptionInputClone);
+
+  // append the degreeContainer to the workExperienceContainer
+  workExperienceContainer.appendChild(degreeContainer);
+});
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const workExperience = [];
+
+  // get data from all degreeContainers
+  const degreeContainers = document.querySelectorAll('.workContainer');
+  degreeContainers.forEach(function(degreeContainer) {
+    const position = degreeContainer.querySelector('#position').value;
+    const company = degreeContainer.querySelector('#company').value;
+    const startDate = degreeContainer.querySelector('#start-date').value.split("-")[0];
+    const endDate = degreeContainer.querySelector('#end-date').value.split("-")[0];
+    const jobDescription = degreeContainer.querySelector('#job-description').value;
+
+    workExperience.push({ position, company, startDate, endDate, jobDescription });
+  });
+
+  // Store the form data in localStorage
+  localStorage.setItem('workExperience', JSON.stringify(workExperience));
+
+  // Redirect to the next page
+  window.location.href = 'skills.html';
+});
+;
+    </script>
+  </body>
+</html>
+

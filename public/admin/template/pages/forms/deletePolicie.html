@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete</title>
+  </head>
+  <body>
+    <!-- Delete Admin -->
+    <script>
+      // Alert de confirmation
+      var d = window.confirm("want to Delete");
+      if (d == true) {
+        // Récupérer l'URL de la fenêtre active sous format de chaine des caractères
+        var url_string = window.location.href;
+        // Convertir l'URL récupéré vers un lien
+        var url = new URL(url_string);
+        // Extraire l'id a partir de l'URL
+        var c = url.searchParams.get("id");
+
+        // Définir la collection à manipuler
+        var url3 = "http://127.0.0.1:3000/policies/" + c;
+        // Définir une requête de connection standard JS
+        var xhr3 = new XMLHttpRequest();
+        // Choisir la méthode DELETE comme une méthode d'accès au serveur et récupérer les données .
+        xhr3.open("DELETE", url3, true);
+
+        xhr3.onload = function () {
+          if (xhr3.readyState == 4 && xhr3.status == "200") {
+            location.replace("policiesList.html");
+            event.preventDefault();
+          } else {
+            console.log("error");
+          }
+        };
+        xhr3.send(null);
+      } else {
+        location.replace("policiesList.html");
+      }
+    </script>
+  </body>
+</html>

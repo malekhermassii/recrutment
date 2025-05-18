@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Education</title>
+    <link rel="stylesheet" href="style.css">
+    
+
+  </head>
+  <body>
+  
+    <h1><span>Your</span> Education</h1>
+    <form>
+      <div class="degreeContainer">
+        <label for="degree">Degree:</label>
+        <input type="text" id="degree" name="degree" required>
+        
+        <label for="institution">Institution:</label>
+        <input type="text" id="institution" name="institution" required>
+        
+        <label for="graduation-date">Graduation Date:</label>
+        <input type="date" id="graduation-date" name="graduation-date" required>
+      </div>
+      
+      <div id="degreeContainers"></div>
+      <button type="button" id="addDegreeBtn">Add Degree</button>
+      <button type="submit">Next</button>
+    </form>
+    
+    <script src="js/nav-bg.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      const form = document.querySelector('form');
+      const degreeInput = form.querySelector('#degree');
+      const institutionInput = form.querySelector('#institution');
+      const graduationDateInput = form.querySelector('#graduation-date');
+      const addDegreeBtn = document.querySelector('#addDegreeBtn');
+      const degreeContainers = document.querySelector('#degreeContainers');
+      
+      let degreeCounter = 0;
+      
+      addDegreeBtn.addEventListener('click', function() {
+        degreeCounter++;
+        
+        const newDegreeContainer = document.createElement('div');
+        newDegreeContainer.classList.add('degreeContainer');
+        
+        const newDegreeLabel = document.createElement('label');
+        newDegreeLabel.setAttribute('for', `degree-${degreeCounter}`);
+        newDegreeLabel.textContent = 'Degree:';
+        
+        const newDegreeInput = document.createElement('input');
+        newDegreeInput.setAttribute('type', 'text');
+        newDegreeInput.setAttribute('id', `degree-${degreeCounter}`);
+        newDegreeInput.setAttribute('name', `degree-${degreeCounter}`);
+        newDegreeInput.setAttribute('required', '');
+        
+        const newInstitutionLabel = document.createElement('label');
+        newInstitutionLabel.setAttribute('for', `institution-${degreeCounter}`);
+        newInstitutionLabel.textContent = 'Institution:';
+        
+        const newInstitutionInput = document.createElement('input');
+        newInstitutionInput.setAttribute('type', 'text');
+        newInstitutionInput.setAttribute('id', `institution-${degreeCounter}`);
+        newInstitutionInput.setAttribute('name', `institution-${degreeCounter}`);
+        newInstitutionInput.setAttribute('required', '');
+        
+        const newGraduationDateLabel = document.createElement('label');
+        newGraduationDateLabel.setAttribute('for', `graduation-date-${degreeCounter}`);
+        newGraduationDateLabel.textContent = 'Graduation Date:';
+        
+        const newGraduationDateInput = document.createElement('input');
+        newGraduationDateInput.setAttribute('type', 'date');
+        newGraduationDateInput.setAttribute('id', `graduation-date-${degreeCounter}`);
+        newGraduationDateInput.setAttribute('name', `graduation-date-${degreeCounter}`);
+        newGraduationDateInput.setAttribute('required', '');
+        
+        newDegreeContainer.appendChild(newDegreeLabel);
+        newDegreeContainer.appendChild(newDegreeInput);
+        newDegreeContainer.appendChild(newInstitutionLabel);
+        newDegreeContainer.appendChild(newInstitutionInput);
+        newDegreeContainer.appendChild(newGraduationDateLabel);
+        newDegreeContainer.appendChild(newGraduationDateInput);
+        
+        degreeContainers.appendChild(newDegreeContainer);
+      });
+      
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+    
+    const degree = degreeInput.value;
+    const institution = institutionInput.value;
+    const graduationDate = graduationDateInput.value;
+    
+    const degrees = [];
+    
+    // Store the first degree from the form in an object
+    const firstDegree = {
+      degree,
+      institution,
+      graduationDate
+    };
+    
+    // Push the first degree object into the degrees array
+    degrees.push(firstDegree);
+    
+    // Loop through each degreeContainer and push the data into the degrees array
+    const degreeContainers = document.querySelectorAll('.degreeContainer');
+    
+    degreeContainers.forEach(function(container) {
+      const degreeInput = container.querySelector('input[name^="degree"]');
+      const institutionInput = container.querySelector('input[name^="institution"]');
+      const graduationDateInput = container.querySelector('input[name^="graduation-date"]');
+      
+      const degree = degreeInput.value;
+      const institution = institutionInput.value;
+      const graduationDate = graduationDateInput.value;
+      
+      const degreeObj = {
+        degree,
+        institution,
+        graduationDate
+      };
+      
+      degrees.push(degreeObj);
+    });
+    
+    // Store the degrees array in localStorage
+    localStorage.setItem('education', JSON.stringify(degrees));
+    
+    // Redirect to the next page
+    window.location.href = 'work-experience.html';
+  });
+</script>
+</body>
+</html>

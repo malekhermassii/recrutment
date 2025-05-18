@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Resume</title>
+    <link rel="stylesheet" href="resume.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  </head>
+  <body>
+    <div >
+      <button id="download-btn">Download PDF</button>
+      <button id="print-btn">Print Resume</button>
+    </div>
+    <div class="resume"> 
+      <div class="resume_left">
+        <div class="resume_content">
+          <div class="resume_item resume_info">
+            <div class="title">
+              <p class="bold"> <span id="name"></span></p>
+              <p class="regular">Developer</p>
+            </div>
+          <!-- <h2>Personal Info</h2> -->
+          <ul>
+            <li>
+              <div class="icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+               <div class="data" id="email"> 
+               </div>
+              </li>
+            <li>
+              <div class="icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+               <span class="data" id="phone"></span>
+              </li>
+            <li>
+              <div class="icon">
+                <i class="fas fa-map-signs"></i>
+              </div>
+              <span class="data" id="address"></span>
+            </li>
+          </ul>
+          <div class="resume_item resume_skills">
+            <div class="title">
+              <h2 class="bold">Skills</h2>
+            </div>
+          <ul id="skills-container"></ul>
+          </div>
+          
+        </div>
+      </div>
+      </div>
+      <div class="resume_right">
+        <div class="resume_item resume_about">
+          <div class="title">
+            <p class="bold">Summary</p>
+          </div>
+          <p id="summary"></p>
+        </div>
+        <div class="resume_item resume_work">
+          <div class="title">
+            <h2 class="bold">Work Experience</h2>
+          </div>
+          <ul class="resume_item resume_work" id="work-experience">
+          </ul>
+        </div>
+        <div class="resume_item resume_education">
+          <div class="title">
+            <h2 class="bold">Education</h2>
+          </div>
+        <ul id="resume_education">
+          <!-- <li> 
+            <div class="date" id="graduation-date"></div>
+            <div  class="info">
+              <p class="semi-bold"  id="degree"></p> 
+              <p  id="institution"></p><br/>
+              
+            </div>
+          </li> -->
+        </ul>
+        </div>
+
+        
+        <div id="autre-section">
+          <!-- The information from the new page will be displayed here -->
+        </div>
+      </div>
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
+      <script>
+        // Retrieve the form data from localStorage
+        const personalInfo = JSON.parse(localStorage.getItem('personalInfo'));
+        const education = JSON.parse(localStorage.getItem('education'));
+        const workExperience = JSON.parse(localStorage.getItem('workExperience'));
+        const skillsData = localStorage.getItem('skills');
+        const summaryData = localStorage.getItem('summaryData');
+        
+        // Set the value of the summary
+        const summaryElement = document.getElementById('summary');
+        summaryElement.textContent = summaryData.split('":"')[1].replace('"}' , "");
+        
+        // Set the values of the resume
+        document.querySelector('#name').textContent = personalInfo.name;
+        document.querySelector('#email').textContent = personalInfo.email;
+        document.querySelector('#phone').textContent = personalInfo.phone;
+        document.querySelector('#address').textContent = personalInfo.address;
+        // Display skills
+        const skillsContainer = document.getElementById('skills-container');
+        if (skillsData) {
+          const skills = JSON.parse(skillsData);
+          skills.forEach(function(skill) {
+            // Create a new skill element and append it to the skills container
+            const skillElem = document.createElement('div');
+            skillElem.className = 'skill_name';
+            skillElem.textContent = skill;
+            skillsContainer.appendChild(skillElem);
+          });
+        }
+        // Display work experience
+        const workExperienceList = document.querySelector('#work-experience');
+        workExperience.forEach(function(exp) {
+          const experienceItem = document.createElement('li');
+          experienceItem.innerHTML = `
+            <p class="date">${exp.startDate}-${exp.endDate} at ${exp.company}</p> 
+            <div class="info">
+              <p class="semi-bold">${exp.position}</p> 
+              <p>${exp.jobDescription}</p> 
+            </div>
+          `;
+          workExperienceList.appendChild(experienceItem);
+        });
+        // Display education
+        const educationList = document.querySelector('#resume_education');
+        education.forEach(function(edu) {
+          const educationItem = document.createElement('li');
+          educationItem.innerHTML = `
+            <p class="date">${edu.graduationDate}</p> 
+            <div class="info">
+              <p class="semi-bold">${edu.degree} in ${edu.institution}</p> 
+              <p> Mon potentiel est clairement axé sur la résolution de problèmes de manière créative et efficace</p>
+            </div>
+          `;
+          educationList.appendChild(educationItem);
+        });
+        
+        
+        
+        
+        // Display other pages data
+        const pagesData = JSON.parse(localStorage.getItem('pagesData'));
+        if (pagesData) {
+          const autresSection = document.getElementById('autres-section');
+          pagesData.forEach(function(pageData) {
+            const autreTitle = document.createElement('h2');
+            autreTitle.textContent = pageData.title;
+        
+            const autreContent = document.createElement('div');
+            autreContent.innerHTML = pageData.content;
+        
+            autresSection.appendChild(autreTitle);
+            autresSection.appendChild(autreContent);
+          });
+        }
+        
+        window.addEventListener('load', function() {
+          // Delete the data from autre.html when starting a new resume
+          localStorage.removeItem('pagesData');
+        });
+        
+        // Download resume as PDF button
+        var download = document.getElementById('download-btn')
+        download.addEventListener('click', function() {
+          const resume = document.querySelector('.resume');
+          html2pdf().from(resume).save();
+        });
+        
+        // Print resume button
+        const printBtn = document.getElementById('print-btn');
+        printBtn.addEventListener('click', function() {
+          window.print();
+        });
+        
+            </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Reward</title>
+  </head>
+  <body>
+    <h4 id="reward"></h4>
+    <h4 id="rewardReason"></h4>
+    <h4 id="rewardedEmployee"></h4>
+
+    <!--View Reward-->
+    <script>
+      var url_string = window.location.href;
+      var url = new URL(url_string);
+      var c = url.searchParams.get("id");
+
+      var url3 = "http://127.0.0.1:3000/rewards/" + c;
+      var xhr3 = new XMLHttpRequest();
+      xhr3.open("GET", url3, true);
+
+      xhr3.onload = function () {
+        var rewards = JSON.parse(xhr3.responseText);
+        if (xhr3.readyState == 4 && xhr3.status == "200") {
+          console.table(rewards);
+          document.getElementById("reward").innerHTML =
+            " reward : " + rewards.reward;
+          document.getElementById("rewardReason").innerHTML =
+            " rewardReason : " + rewards.rewardReason;
+          document.getElementById("rewardedEmployee").innerHTML =
+            " rewardedEmployee : " + rewards.rewardedEmployee;
+        } else {
+          console.log("error");
+        }
+      };
+
+      xhr3.send(null);
+    </script>
+  </body>
+</html>

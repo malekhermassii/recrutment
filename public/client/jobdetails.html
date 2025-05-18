@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Firmbee.com - Free Project Management Platform for remote teams"> 
+    <title>Name of company</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/0e035b9984.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/0e035b9984.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-xl fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"><img style="height: 70px; width: 130px;" claass="w-100" src="../images/logo.png"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-card-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-card-item">
+                <a class="nav-link" href="offers.html">Offers</a>
+              </li> 
+              <li class="nav-card-item">
+                <a class="nav-link" href="blog.html">Blog</a>
+              </li>     
+              <li class="nav-card-item">
+                <a class="nav-link" href="aboutus.html">About</a>
+              </li> 
+              <li class="nav-card-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+            <ul class="right navbar-nav ms-auto">
+              <li class="nav-card-item-right create-account">
+                <a class="nav-link" href="register.html">Create account</a>
+              </li>       
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+
+      <br><br><br><br>
+
+
+        <!-- Job Detail Start -->
+        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="container" id="jobContainer">
+                
+            </div>
+        </div>
+        <!-- Job Detail End -->
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container text-center text-md-start">
+      <div class="footer-wrap">
+        <div class="about">
+          <img class="mb-5" src="img/icon/company-logo.svg" alt="">
+         
+          <div class="social-media">
+            <a href="" class="me-2 text-reset"><img src="img/icon/facebook-icon.svg" alt=""></a>
+            <a href="" class="me-2 text-reset"><img src="img/icon/twitter-icon.svg" alt=""></a>
+            <a href="" class="me-2 text-reset"><img src="img/icon/linkedin-icon.svg" alt=""></a>
+            <a href="" class="me-2 text-reset"><img src="img/icon/instagram-icon.svg" alt=""></a>
+          </div>
+        </div>
+
+        <div class="company">
+          <h6 class="fw-bold">Company</h6>
+          <p><a href="aboutus.html">About us</a></p>
+          <p><a href="offers.html">Offers</a></p>
+          <p><a href="contact.html">Contact</a></p>
+
+        </div>
+        
+        <div class="useful-links">
+          <h6 class="fw-bold">Useful links</h6>
+          <p><a href="blog.html">Blog</a></p>
+          <p><a href="sign-in.html">Login</a></p>
+          <p><a href="policies.htlml">Privacy Policy</a></p>
+
+        </div>
+
+        <div class="newsletter">
+          <h6 class="fw-bold">Newsletter</h6>
+          <p class="text-muted">Sign up and receive the latest tips
+            via email.</p>
+            <form id="subscribe" action="">
+              <label for="email">Youre e-mail:</label>
+              <input type="email" placeholder="e-mail:" name="email" required>
+              <button type="submit" class="main-btn">Subscribe</button>
+            </form>
+        </div>
+        
+      </div>
+    </div>
+  
+</footer>
+
+<script src="js/nav-bg.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+<script>
+  var url_string = window.location.href;
+  var url = new URL(url_string);
+  var c = url.searchParams.get("id");
+
+  if (c !== null) {
+    var url3 = "http://127.0.0.1:3000/jobs/" + c;
+    console.log(url3);
+    var xhr3 = new XMLHttpRequest();
+    xhr3.open("GET", url3, true);
+
+    xhr3.onload = function() {
+      if (xhr3.status === 200) {
+        var data = JSON.parse(xhr3.response);
+        var jobContainer = document.getElementById("jobContainer");
+
+        var jobItem = document.createElement("div");
+        jobItem.className = "article-item";
+        jobItem.className = "mb-4";
+
+        jobItem.innerHTML = `
+        <div class="row gy-5 gx-4">
+                    <div class="col-lg-8">
+                        <div class="d-flex align-items-center mb-5">
+                            <img class="flex-shrink-0 img-fluid border rounded" src="../images/${data.image.split('/').pop().split('\\').pop()}" style="width: 80px; height: 80px;">
+                            <div class="text-start ps-4">
+                                <h3 class="mb-3">${data.title}</h3>
+                                <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>${data.locationAddress}</span>
+                                <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>${data.startTime} - ${data.endTime} </span>
+                                <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$${data.salary}</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-5">
+                            <h4 class="mb-3">Job description</h4>
+                            <p>${data.missions}</p>
+                            <h4 class="mb-3">Responsibility</h4>
+                            <p>${data.workRequirements}</p>
+                           
+                            <h4 class="mb-3">Qualifications</h4>
+                            <p>
+                              ${data.skills} </p>
+                           
+                        </div>
+        
+                        <div class="">
+                            <h4 class="mb-4">Apply For The Job</h4>
+                            <form onsubmit="return false">
+                                <div class="row g-3">
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" class="form-control" placeholder="Your Name" id="user">
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" class="form-control" placeholder="your village" id="village">
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input id="birthDate" type="date" class="form-control" placeholder="birthDate">
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" class="form-control bg-white" id="experienceLevel">
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="number" id="phone" class="form-control"  placeholder="phone">
+                                    </div><div class="col-12 col-sm-6">
+                                      <input type="text" class="form-control" placeholder=" work" id="work">
+                                  </div>
+                                    <div class="col-12">
+                                        <button onclick="add()" class="btn btn-primary w-100" type="submit">Apply Now</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+        
+                  
+                </div>
+         `;
+        jobContainer.appendChild(jobItem);
+      } else {
+        console.error("Error loading article: " + xhr3.status);
+      }
+    };
+
+    xhr3.send();
+  } else {
+    console.error("Invalid blog ID: " + c);
+  }
+</script>
+    <!-- JavaScript Libraries -->
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    -->
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <!-- link front with backend -->
+    
+</body>
+
+</html>

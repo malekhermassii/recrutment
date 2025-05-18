@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name of company</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/0e035b9984.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/0e035b9984.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+      }
+      .manage{
+        position: relative;
+        top: 10px;
+        margin-right: 10%;
+        cursor: pointer;
+      }
+      </style>
+</head>
+
+<body>
+
+      <nav class="navbar navbar-expand-xl fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"><img style="height: 70px; width: 130px;" claass="w-100" src="../images/logo.png"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-card-item">
+                <a class="nav-link  active" href="index.html">Home</a>
+              </li>
+              <li class="nav-card-item">
+                <a class="nav-link" href="offers.html">Offers</a>
+              </li> 
+              <li class="nav-card-item">
+                <a class="nav-link" href="blog.html">Blog</a>
+              </li>     
+              <li class="nav-card-item">
+                <a class="nav-link" href="aboutus.html">About</a>
+              </li> 
+              <li class="nav-card-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+            <ul class="right navbar-nav ms-auto">
+              <li class="nav-card-item-right create-account">
+                <a class="nav-link" href="register.html">Create account</a>
+              </li>   
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <main>
+        <!-- Intro -->
+        <div style="height: 100vh !important; " class="intro ">
+          <div class="container introo">
+            <div class="intro-text">
+              <br><br>
+              <h1>Looking for a job?<br><span class="green">we will help you</span></h1>
+              <div class="check-out">
+                <p>Check out our offers</p>
+              </div>
+            </div>
+            <section class="intro-img">
+              <img  src="./img/intro.png"/>
+             </section>
+         
+          
+          </div>
+        </div>
+
+
+         <!--Resume Builder Service-->
+         <div style="position: relative;" class="service text-center cvbuild">
+          <h1>Build your <span class="green">Resume</span></h1>
+          <p >Our resume builder service helps jobseekers create professional resumes that stand out to potential employers.<br>
+             With easy-to-use templates and helpful tips, jobseekers can make a great first impression and land their dream job.</p><br>
+            <img class="circle" src="img/icon/circle.svg" width="30%" />
+            <div class="imageResume " >
+            <img  src="img/icon/resume1.jpg" width="65%" />
+            </div>
+          <a id="createCV" style="margin-top: 70px; margin-left:40%;"  class="btn2" onclick="createCv()">Get your Resume NOW</a>
+          
+        </div>
+
+        <br><br><br>
+
+
+         <!--job offers-->
+         <div class="job-offers" >
+          <h1>Job <span class="green">offers</span></h1>
+          <div class="jobb">
+            <div  class="description item ">
+              <div>
+                <br><h2> About our offers </h2>
+                <p style="line-height: 40px; font-size: 20px; text-align: justify;">At our company, we are committed to helping jobseekers find their dream careers. We offer a wide range of services to assist jobseekers in their search, including personalized resume reviews, career coaching, and job placement assistance. We work with employers across a broad range of industries to provide jobseekers with access to diverse employment opportunities. Our job board features job listings from entry-level positions to executive-level roles, providing jobseekers with a broad range of options to choose from.</p>
+                <a class="btn2 button-offers" href="offers.html" >All Offers</a>
+              </div>
+           
+            </div>
+              <div   class="item image col-md-4">
+                <img id="image-job" class="job-imagee" style="max-height: 600px !important; min-height: 100px;" src="img/job-offers.png" alt="">
+                
+              </div>
+          </div>
+          
+          </div>
+        </div>
+      
+         <!--Discover-->
+        <div class="container discovery">
+        <div class="search-by">
+          <h1>Discrover our <span class="green">category</span></h1>
+          
+
+            <!--Start carousel-->
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+   
+               <div class="carousel-inner text-center">
+                  <div class="carousel-item active">
+                    <div class="card-item">
+                      <div class="photo">
+                        <img class="main-state" src="img/icon/business-development.svg" alt="">
+                        <img class="hover" src="img/icon/business-development.svg" alt="">
+                      </div>
+                      <p>Business<br>
+                        Development</p>
+                    </div> 
+
+                    <div class="card-item">
+                      <div class="photo">
+                        <img class="main-state" src="img/icon/graphic.svg" alt="">
+                        <img class="hover" src="img/icon/graphic.svg" alt="">
+                      </div>
+                      <p>Graphic<br>
+                        Designer</p>
+                    </div>
+
+                    <div class="card-item">
+                      <div class="photo">
+                        <img class="main-state" src="img/icon/pm.svg" alt="">
+                        <img class="hover" src="img/icon/pm.svg" alt="">
+                      </div>
+                      <p>Project<br>
+                        Management</p>
+                    </div>
+
+                    <div class="card-item">
+                      <div class="photo">
+                        <img class="main-state"src="img/icon/marketing.svg" alt="">
+                        <img class="hover" src="img/icon/marketing.svg" alt="">
+                      </div>
+                      <p>Marketing &<br>
+                        Communication</p>
+                    </div>
+
+                  </div>
+
+                  <div class="carousel-item">
+                    <div class="card-item">
+                      <div class="photo">
+                        <img class="main-state" src="img/icon/web.svg" alt="">
+                        <img class="hover" src="img/icon/web.svg" alt="">
+                      </div>
+                      <p>Web<br>
+                        Development</p>
+                    </div> 
+
+                    <div class="card-item">
+                      <div class="photo">
+                        <img class="main-state" src="img/icon/product.svg" alt="">
+                        <img class="hover" src="img/icon/product.svg" alt="">
+                      </div>
+                      <p>Product <br>
+                      Management </p>
+                    </div>
+
+                    <div class="card-item">
+                      <div class="photo">
+                        <img class="main-state"src="img/icon/money.svg" alt="">
+                        <img class="hover" src="img/icon/money.svg" alt="">
+                      </div>
+                      <p>Quality<br>
+                        Assurance</p>
+                    </div>
+
+                    <div class="card-item">
+                      <div class="photo">
+                        <img class="main-state"src="img/icon/struct.svg" alt="">
+                        <img class="hover" src="img/icon/struct.svg" alt="">
+                      </div>
+                      <p>Functional<br>
+                        Structure</p>
+                    </div>
+
+                  </div>
+               </div>
+               <div class="carousel-nav">
+                <a class="nav-item" role="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev"><img src="img/icon/prew-arrow.svg" alt=""></a>
+                <a class="nav-item" role="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next"><img src="img/icon/next-arrow.svg" alt=""></a>
+               </div>
+               <button class="btn1"><a href="offers.html">All category </button>
+            </div>
+
+        </div>
+
+        
+
+          <!-- Newsletter -->
+
+          <div class="update-news">
+            <div class="row">
+              <div class="col-md-5 news-text">
+                <h2>Get your update news</h2>
+                <p>If you going to use a passage, you need to be sure there  isn’t anything embarrassing.</p>
+              </div>
+              <div class="col-md-7 news-form">
+                <input type="email" name="email" placeholder="Enter your email" id="">
+                <button type="submit">Send</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="find-jobs text-center">
+            <h1><span class="green">Find a job</span> that matched<br>your skills</h1>
+          </div>
+
+        </div>
+
+        
+        
+    </main>
+      <!-- Footer -->
+      <footer>
+          <div class="container text-center text-md-start">
+            <div class="footer-wrap">
+              <div class="about">
+                <img class="mb-5" src="img/icon/company-logo.svg" alt="">
+               
+                <div class="social-media">
+                  <a href="" class="me-2 text-reset"><img src="img/icon/facebook-icon.svg" alt=""></a>
+                  <a href="" class="me-2 text-reset"><img src="img/icon/twitter-icon.svg" alt=""></a>
+                  <a href="" class="me-2 text-reset"><img src="img/icon/linkedin-icon.svg" alt=""></a>
+                  <a href="" class="me-2 text-reset"><img src="img/icon/instagram-icon.svg" alt=""></a>
+                </div>
+              </div>
+
+              <div class="company">
+                <h6 class="fw-bold">Company</h6>
+                <p><a href="aboutus.html">About us</a></p>
+                <p><a href="offers.html">Offers</a></p>
+                <p><a href="contact.html">Contact</a></p>
+      
+              </div>
+              
+              <div class="useful-links">
+                <h6 class="fw-bold">Useful links</h6>
+                <p><a href="blog.html">Blog</a></p>
+                <p><a href="sign-in.html">Login</a></p>
+                <p><a href="policies.htlml">Privacy Policy</a></p>
+
+              </div>
+
+              <div class="newsletter">
+                <h6 class="fw-bold">Newsletter</h6>
+                <p class="text-muted">Sign up and receive the latest tips
+                  via email.</p>
+                  <form id="subscribe" action="">
+                    <label for="email">Youre e-mail:</label>
+                    <input type="email" placeholder="e-mail:" name="email" required>
+                    <button type="submit" class="main-btn">Subscribe</button>
+                  </form>
+              </div>
+              
+            </div>
+          </div>
+        
+      </footer>
+
+    <script src="js/nav-bg.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+      // Check if the user is logged in
+      function isLoggedIn() {
+  // Check if the "loggedIn" item is set in session storage
+  return sessionStorage.getItem("loggedIn") === "true";
+}
+//create cv 
+function createCv(){
+  const btnCreate   = document.getElementById('createCV') ; 
+  if (isLoggedIn()) {
+    window.location.href = "personal-info.html"
+  }
+  else{
+    alert('you have to login Or create an account to create a cv')
+  }
+}
+//
+
+
+// Update the navigation based on the login state
+function updateNavigation() {
+  const navList = document.getElementById("navbarNav");
+  const id = localStorage.getItem('idU');
+  if (isLoggedIn()) {
+    // User is logged in, show logout button
+    navList.innerHTML = `
+    <ul class="navbar-nav">
+              <li class="nav-card-item">
+                <a class="nav-link  active" href="index.html">Home</a>
+              </li>
+              <li class="nav-card-item">
+                <a class="nav-link" href="offers.html">Offers</a>
+              </li> 
+              <li class="nav-card-item">
+                <a class="nav-link" href="blog.html">Blog</a>
+              </li>     
+              <li class="nav-card-item">
+                <a class="nav-link" href="aboutus.html">About</a>
+              </li> 
+              <li class="nav-card-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+            <ul class="right navbar-nav ms-auto">
+              <a class="manage" href="manageprofile.html?id=${id}">
+                <span class="material-symbols-outlined">
+                  person
+                </span>
+              </a>
+             
+              <li class="nav-card-item-right create-account">
+                <a id="logoutBtn" class="nav-link" >Logout</a>
+              </li>   
+            </ul>
+      
+    `;
+
+    // Attach logout button click event handler
+    document.getElementById("logoutBtn").addEventListener("click", logout);
+  } else {
+    // User is not logged in, show create account button
+    navList.innerHTML = `
+    <ul class="navbar-nav">
+              <li class="nav-card-item">
+                <a class="nav-link  active" href="index.html">Home</a>
+              </li>
+              <li class="nav-card-item">
+                <a class="nav-link" href="offers.html">Offers</a>
+              </li> 
+              <li class="nav-card-item">
+                <a class="nav-link" href="blog.html">Blog</a>
+              </li>     
+              <li class="nav-card-item">
+                <a class="nav-link" href="aboutus.html">About</a>
+              </li> 
+              <li class="nav-card-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+            <ul class="right navbar-nav ms-auto">
+              <li class="nav-card-item-right create-account">
+                <a class="nav-link" href="sign-in.html">Sign In</a>
+              </li>   
+            </ul>
+    `;
+  }}
+
+
+// Logout function
+function logout() {
+  fetch("/logout", {
+    method: "POST",
+    credentials: "same-origin" // Include cookies in the request
+  })
+    .then(response => {
+      if (response.ok) {
+        // Redirect to the home page or perform any other desired action
+        // Inside the logout function
+        sessionStorage.removeItem("loggedIn");
+
+        window.location.href = "sign-in.html";
+      } else {
+        console.error("Logout failed");
+      }
+    })
+    .catch(error => {
+      console.error("Logout failed:", error);
+    });
+}
+
+// Call the updateNavigation function on page load
+document.addEventListener("DOMContentLoaded", updateNavigation);
+
+    </script>
+    
+</body>
+</html>

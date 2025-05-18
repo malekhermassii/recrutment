@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Firmbee.com - Free Project Management Platform for remote teams"> 
+    <meta name="author" content="Firmbee.com - Free Project Management Platform for remote teams"> 
+    <title>Name of company</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/0e035b9984.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/0e035b9984.js" crossorigin="anonymous"></script>
+    <!-- styles  -->
+    <link rel="stylesheet" href="css/style-register.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../admin/template//vendors/feather/feather.css">
+
+    <link rel="stylesheet" href="../admin/template/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="../admin/template/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../admin/template/css/vertical-layout-light/style.css">
+
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-xl fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img style="height: 60px; width: 80px;" claass="w-100" src="../images/logo.png" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-card-item">
+            <a class="nav-link  active" href="index.html">Home</a>
+          </li>
+          <li class="nav-card-item">
+            <a class="nav-link" href="offers.html">Offers</a>
+          </li> 
+          <li class="nav-card-item">
+            <a class="nav-link" href="blog.html">Blog</a>
+          </li>     
+          <li class="nav-card-item">
+            <a class="nav-link" href="aboutus.html">About</a>
+          </li> 
+          <li class="nav-card-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        <ul class="right navbar-nav ms-auto">
+          <li class="nav-card-item-right create-account">
+            <a class="nav-link" href="register.html">Create account</a>
+          </li>       
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+      
+      <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+          <div class="content-wrapper d-flex align-items-center auth px-0">
+            <div class="row w-100 mx-0 ">
+              <div class="col-lg-4 mx-auto ">
+                <div class="form auth-form-light text-left py-5 px-4 px-sm-5 mt-5 ">
+                  <div class="brand-logo">
+                    <img src="../images/logo.png" style="height: 90px; width: 90px;" alt="logo">
+                  </div>
+                  <h4>New here?</h4>
+                  <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
+                  <form onsubmit="return false" class="pt-3">
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-lg" id="name" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-lg" id="surname" placeholder="Surname">
+                    </div>
+                    <div class="form-group">
+                      <input type="email" class="form-control form-control-lg" id="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-lg" id="phone" placeholder="Phone Number">
+                    </div>
+                    <div class="form-group">
+                      <select class="form-control form-control-lg" id="gender">
+                        <option hidden>Country</option>
+                        <option>Female</option>
+                        <option>Male</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <input type="password" class="form-control form-control-lg" id="password" placeholder="Password">
+                    </div>
+                    <div class="mb-4">
+                      <div class="form-check">
+                        <label class="form-check-label text-muted">
+                          <input type="checkbox" class="form-check-input">
+                          I agree to all Terms & Conditions
+                        </label>
+                      </div>
+                    </div>
+                    <div class="mt-3">
+                      <a onclick="add()" type="submit"  class=" btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"  >SIGN UP</a>
+                    </div>
+                    <div class="text-center mt-4 font-weight-light">
+                      Already have an account? <a href="sign-in.html" class="text-primary">Login</a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <!-- content-wrapper ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+      </div>
+      <script>
+        function add() {
+          var url = "http://127.0.0.1:3000/users"; // Définir la collection à manipuler
+          // Récupère les données saisies dans la variable data.
+          var data = {};
+          data.name = document.getElementById("name").value; 
+          data.surname = document.getElementById("surname").value; 
+          data.email = document.getElementById("email").value; 
+          // Récupération de la variable email saisir dans notre code html
+          data.gender = document.getElementById("gender").value; 
+          data.phone = document.getElementById("phone").value; 
+          data.password = document.getElementById("password").value; 
+    
+          var json = JSON.stringify(data); // Convertir la variable de données en JSON.
+          var xhr = new XMLHttpRequest(); // Définir une requête de connection standard JS
+          xhr.open("POST", url, true); // Choisir la méthode POST comme une méthode d'accès au serveur et récupérer les données .
+          xhr.setRequestHeader("Content-type", "application/json; charset=utf-8"); // Choisir l'encodage utf-8 pour que la resultat retourne peut avoir différents format de text comme les côté , les accent …..
+          // Load les données à partir de la serveur -> début connection
+          xhr.onload = function () {
+            var clients = JSON.parse(xhr.responseText); // Conversion des données en format json
+            // Si le status retourné par le serveur est 200
+            if (xhr.readyState == 4 && xhr.status == "200") {
+              alert("clients Added");
+              location.replace("sign-in.html");
+
+           
+            } else {
+              alert(clients.message);
+            }
+          };
+          xhr.send(json);
+        }
+      </script>
+  </body>

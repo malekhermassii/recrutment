@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Client</title>
+  </head>
+  <body>
+    <h4 id="name"></h4>
+    <h4 id="surname"></h4>
+    <h4 id="phone"></h4>
+    <h4 id="email"></h4>
+
+    <!--View Client-->
+    <script>
+      var url_string = window.location.href;
+      var url = new URL(url_string);
+      var c = url.searchParams.get("id");
+
+      var url3 = "http://127.0.0.1:3000/users/" + c;
+      var xhr3 = new XMLHttpRequest();
+      xhr3.open("GET", url3, true);
+
+      xhr3.onload = function () {
+        var users = JSON.parse(xhr3.responseText);
+        if (xhr3.readyState == 4 && xhr3.status == "200") {
+          console.table(users);
+          document.getElementById("name").innerHTML =
+            "user name : " + users.name;
+          document.getElementById("surname").innerHTML =
+            "user surname : " + users.surname;
+          document.getElementById("phone").innerHTML =
+            "user phone : " + users.phone;
+            document.getElementById("email").innerHTML =
+            "user email : " + users.email;
+        } else {
+          console.log("error");
+        }
+      };
+
+      xhr3.send(null);
+    </script>
+  </body>
+</html>

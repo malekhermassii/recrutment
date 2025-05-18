@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Skydash Admin</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="../../vendors/feather/feather.css">
+  <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="../../images/favicon.png" />
+</head>
+
+<body>
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth px-0">
+        <div class="row w-100 mx-0">
+          <div class="col-lg-4 mx-auto">
+            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+              <div class="brand-logo">
+                <img src="../../images/logo.svg" alt="logo">
+              </div>
+              <h4>Hello! let's get started</h4>
+              <h6 class="font-weight-light">Sign in to continue.</h6>
+              <form onsubmit="return false" class="pt-3">
+                <div class="form-group">
+                  <input type="email" class="form-control form-control-lg" id="email" placeholder="email">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control form-control-lg" id="password" placeholder="Password">
+                </div>
+                <div class="mt-3">
+                  <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" onclick="login()">SIGN IN</a>
+                </div>
+                
+               
+               
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="../../vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="../../js/off-canvas.js"></script>
+  <script src="../../js/hoverable-collapse.js"></script>
+  <script src="../../js/template.js"></script>
+  <script src="../../js/settings.js"></script>
+  <!-- <script src="../../js/todolist.js"></script> -->
+  <!-- endinject -->
+  <script>
+    function login(){
+    email = document.getElementById('email').value ; 
+    password = document.getElementById('password').value ; 
+    // Définir une requête de connection standard JS
+var request = new XMLHttpRequest();
+// Choisir la méthode GET comme une méthode d'accès au serveur et récupérer les données .
+request.open("GET", "http://127.0.0.1:3000/admins", true);
+// Load les données à partir de la serveur -> Début connection
+request.onload = function () {
+  // Begin accessing JSON data here
+  var data = JSON.parse(this.response);
+  console.log(data);
+  access = false;
+  for(i=0 ; i < data.length ; i++){
+        if(data[i].email == email && data[i].password == password){
+          access = true ; 
+          localStorage.setItem("idA" , data[i]._id)
+          localStorage.setItem("usernameA" , data[i].username)
+        }
+      }
+
+
+      if(access){
+        sessionStorage.setItem("loggedIn", "true");
+        alert("welcome user"); 
+        location.replace('../../index.html')
+
+      }
+      else{
+        alert("Invalid Login or password") ; 
+      }
+};
+// Send request
+request.send();}
+</script>
+</body>
+
+</html>

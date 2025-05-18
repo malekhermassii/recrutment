@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/0e035b9984.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/0e035b9984.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body >
+    <nav class="navbar navbar-expand-xl fixed-top ">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img cstyle="height: 70px; width: 130px;" claass="w-100" src="../images/logo.png"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-card-item">
+              <a class="nav-link  active" href="index.html">Home</a>
+            </li>
+            <li class="nav-card-item">
+              <a class="nav-link" href="offers.html">Offers</a>
+            </li> 
+            <li class="nav-card-item">
+              <a class="nav-link" href="blog.html">Blog</a>
+            </li>     
+            <li class="nav-card-item">
+              <a class="nav-link" href="aboutus.html">About</a>
+            </li> 
+            <li class="nav-card-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <ul class="right navbar-nav ms-auto">
+            <li class="nav-card-item-right create-account">
+              <a class="nav-link" href="register.html">Create account</a>
+            </li>   
+          </ul>
+        </div>
+      </div>
+    </nav>
+        <h1><span>Work</span> Experience</h1>
+        <form class="form">
+          <label for="position">Position:</label>
+          <input type="text" id="position" name="position" required>
+          
+          <label for="company">Company:</label>
+          <input type="text" id="company" name="company" required>
+          
+          <label for="start-date">Start Date:</label>
+          <input type="date" id="start-date" name="start-date" required>
+          
+          <label for="end-date">End Date:</label>
+          <input type="date" id="end-date" name="end-date" required>
+          
+          <label for="job-description">Job Description:</label>
+          <textarea id="job-description" name="job-description" required></textarea>
+          <div id="work-experience-container"></div>
+          <button type="button" id="addWorkBtn">Add Work Experience</button>
+          <button type="submit">Next</button>
+    </form>
+    <footer>
+      <div class="container text-center text-md-start">
+        <div class="footer-wrap">
+          <div class="about">
+            <img class="mb-5" src="img/icon/company-logo.svg" alt="">
+           
+            <div class="social-media">
+              <a href="" class="me-2 text-reset"><img src="img/icon/facebook-icon.svg" alt=""></a>
+              <a href="" class="me-2 text-reset"><img src="img/icon/twitter-icon.svg" alt=""></a>
+              <a href="" class="me-2 text-reset"><img src="img/icon/linkedin-icon.svg" alt=""></a>
+              <a href="" class="me-2 text-reset"><img src="img/icon/instagram-icon.svg" alt=""></a>
+            </div>
+          </div>
+
+          <div class="company">
+            <h6 class="fw-bold">Company</h6>
+            <p><a href="aboutus.html">About us</a></p>
+            <p><a href="offers.html">Offers</a></p>
+            <p><a href="contact.html">Contact</a></p>
+  
+          </div>
+          
+          <div class="useful-links">
+            <h6 class="fw-bold">Useful links</h6>
+            <p><a href="blog.html">Blog</a></p>
+            <p><a href="sign-in.html">Login</a></p>
+            <p><a href="policies.htlml">Privacy Policy</a></p>
+
+          </div>
+
+          <div class="newsletter">
+            <h6 class="fw-bold">Newsletter</h6>
+            <p class="text-muted">Sign up and receive the latest tips
+              via email.</p>
+              <form id="subscribe" action="">
+                <label for="email">Youre e-mail:</label>
+                <input type="email" placeholder="e-mail:" name="email" required>
+                <button type="submit" class="main-btn">Subscribe</button>
+              </form>
+          </div>
+          
+        </div>
+      </div>
+    
+  </footer>
+  <script>
+    const form = document.querySelector('form');
+  const positionInput = form.querySelector('#position');
+  const companyInput = form.querySelector('#company');
+  const startDateInput = form.querySelector('#start-date');
+  const endDateInput = form.querySelector('#end-date');
+  const jobDescriptionInput = form.querySelector('#job-description');
+  const addButton = document.querySelector('#addWorkBtn');
+  const workExperienceContainer = document.querySelector('#work-experience-container');
+  
+  addButton.addEventListener('click', function(e) {
+  
+    // create a new degreeContainer
+    const degreeContainer = document.createElement('div');
+    degreeContainer.className = 'workContainer';
+  
+    // create input elements for the degreeContainer
+    const positionLabel = document.createElement('label');
+    positionLabel.setAttribute('for', 'position');
+    positionLabel.textContent = 'Position:';
+    const positionInputClone = positionInput.cloneNode(true);
+    positionInputClone.value = '';
+  
+    const companyLabel = document.createElement('label');
+    companyLabel.setAttribute('for', 'company');
+    companyLabel.textContent = 'Company:';
+    const companyInputClone = companyInput.cloneNode(true);
+    companyInputClone.value = '';
+  
+    const startDateLabel = document.createElement('label');
+    startDateLabel.setAttribute('for', 'start-date');
+    startDateLabel.textContent = 'Start Date:';
+    const startDateInputClone = startDateInput.cloneNode(true);
+    startDateInputClone.value = '';
+  
+    const endDateLabel = document.createElement('label');
+    endDateLabel.setAttribute('for', 'end-date');
+    endDateLabel.textContent = 'End Date:';
+    const endDateInputClone = endDateInput.cloneNode(true);
+    endDateInputClone.value = '';
+  
+    const jobDescriptionLabel = document.createElement('label');
+    jobDescriptionLabel.setAttribute('for', 'job-description');
+    jobDescriptionLabel.textContent = 'Job Description:';
+    const jobDescriptionInputClone = jobDescriptionInput.cloneNode(true);
+    jobDescriptionInputClone.value = '';
+  
+    // append the input elements to the degreeContainer
+    degreeContainer.appendChild(positionLabel);
+    degreeContainer.appendChild(positionInputClone);
+    degreeContainer.appendChild(companyLabel);
+    degreeContainer.appendChild(companyInputClone);
+    degreeContainer.appendChild(startDateLabel);
+    degreeContainer.appendChild(startDateInputClone);
+    degreeContainer.appendChild(endDateLabel);
+    degreeContainer.appendChild(endDateInputClone);
+    degreeContainer.appendChild(jobDescriptionLabel);
+    degreeContainer.appendChild(jobDescriptionInputClone);
+  
+    // append the degreeContainer to the workExperienceContainer
+    workExperienceContainer.appendChild(degreeContainer);
+  });
+  
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+  
+    const workExperience = [];
+  
+    // get data from all degreeContainers
+    const degreeContainers = document.querySelectorAll('.workContainer');
+    degreeContainers.forEach(function(degreeContainer) {
+      const position = degreeContainer.querySelector('#position').value;
+      const company = degreeContainer.querySelector('#company').value;
+      const startDate = degreeContainer.querySelector('#start-date').value.split("-")[0];
+      const endDate = degreeContainer.querySelector('#end-date').value.split("-")[0];
+      const jobDescription = degreeContainer.querySelector('#job-description').value;
+  
+      workExperience.push({ position, company, startDate, endDate, jobDescription });
+    });
+  
+    // Retrieve previous work experience from localStorage, if any
+    let previousWorkExperience = JSON.parse(localStorage.getItem('workExperience')) || [];
+  
+    // Merge the new work experience with the previous one
+    const updatedWorkExperience = previousWorkExperience.concat(workExperience);
+  
+    // Store the updated work experience in localStorage
+    localStorage.setItem('workExperience', JSON.stringify(updatedWorkExperience));
+  
+    // Redirect to the next page
+    window.location.href = 'skills.html';
+  });
+  
+   </script>
+  </body>
+</html>
+

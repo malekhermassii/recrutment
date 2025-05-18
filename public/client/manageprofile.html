@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+
+<title> Edit profile page </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<style type="text/css">
+    	body{
+    margin-top:20px;
+    background:#f8f8f8;
+}
+.mt-2 {
+    color: #aacc00;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-xl fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"><img style="height: 70px; width: 130px;" claass="w-100" src="../images/logo.png"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-card-item">
+                <a class="nav-link " href="index.html">Home</a>
+              </li>
+              <li class="nav-card-item">
+                <a class="nav-link" href="offers.html">Offers</a>
+              </li> 
+              <li class="nav-card-item">
+                <a class="nav-link" href="blog.html">Blog</a>
+              </li>     
+              <li class="nav-card-item">
+                <a class="nav-link" href="aboutus.html">About</a>
+              </li> 
+              <li class="nav-card-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+            <ul class="right navbar-nav ms-auto">
+              <li class="nav-card-item-right create-account">
+                <a class="nav-link" href="register.html">Create account</a>
+              </li>       
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <br><br><br><br>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+<div class="row flex-lg-nowrap">
+<div class="col-12 col-lg-auto mb-3" style="width: 200px;">
+</div>
+<div class="col">
+<div class="row">
+<div class="col mb-3">
+<div class="card">
+<div class="card-body">
+<div class="e-profile">
+<div class="row">
+<div class="col-12 col-sm-auto mb-3">
+<div class="mx-auto" style="width: 140px;">
+<div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
+<span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
+</div>
+</div>
+</div>
+<div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+<div class="text-center text-sm-left mb-2 mb-sm-0">
+<h4 class="pt-sm-2 pb-1 mb-0 text-nowrap" id="username"></h4>
+<div class="mt-2">
+  <label class="btn btn-primary">
+    <i class="fa fa-fw fa-camera"></i>
+    <span>Change Photo</span>
+    <input type="file" style="display: none;">
+  </label>  
+</div>
+</div>
+<div class="text-center text-sm-right">
+</div>
+</div>
+</div>
+<ul class="nav nav-tabs">
+<li class="nav-item"><a href="" class="active nav-link">Settings</a></li>
+</ul>
+<div class="tab-content pt-3">
+<div class="tab-pane active">
+<form class="form" novalidate="">
+<div class="row">
+<div class="col">
+<div class="row">
+<div class="col">
+<div class="form-group">
+<label>Name</label>
+<input class="form-control" type="text"  placeholder="enter your name" id="name">
+</div>
+</div>
+<div class="col">
+<div class="form-group">
+<label>Surname</label>
+ <input class="form-control" type="text" name="" placeholder="enter your surname" id="surname">
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col">
+<div class="form-group">
+<label>Email</label>
+<input class="form-control" type="text" placeholder="user@example.com" id="email">
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col mb-3">
+<div class="form-group">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12 col-sm-6 mb-3">
+<div class="mb-2"><b>Change Password</b></div>
+<div class="row">
+<div class="col">
+
+</div>
+</div>
+<div class="row">
+<div class="col">
+<div class="form-group">
+<label>New Password</label>
+<input class="form-control" type="password" placeholder="••••••" id="password">
+</div>
+</div>
+</div>
+
+</div>
+<div class="col-12 col-sm-5 offset-sm-1 mb-3">
+<div class="row">
+<div class="col">
+</div>
+</div>
+</div>
+ </div>
+<div class="row">
+<div class="col d-flex justify-content-end">
+<button class="btn btn-primary" type="submit" onclick="update()">Save Changes</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-3 mb-3">
+<div class="px-xl-3">
+</div>
+</div>
+</div>
+<div class="card">
+</div>
+</div>
+</div>
+</div>
+ <!-- Footer -->
+ <footer>
+  <div class="container text-center text-md-start">
+    <div class="footer-wrap">
+      <div class="about">
+        <img src="img/icon/company-logo.svg" alt="">
+        <p class="text-muted py-4">
+          Start working with us which can provide you with all the tools needed to run an effcieint business remotely.
+        </p>
+        <div class="social-media">
+          <a href="" class="me-2 text-reset"><img src="img/icon/facebook-icon.svg" alt=""></a>
+          <a href="" class="me-2 text-reset"><img src="img/icon/twitter-icon.svg" alt=""></a>
+          <a href="" class="me-2 text-reset"><img src="img/icon/linkedin-icon.svg" alt=""></a>
+          <a href="" class="me-2 text-reset"><img src="img/icon/instagram-icon.svg" alt=""></a>
+        </div>
+      </div>
+
+      <div class="company">
+        <h6 class="fw-bold">Company</h6>
+        <p><a href="">About us</a></p>
+        <p><a href="">Services</a></p>
+        <p><a href="">Team</a></p>
+        <p><a href="">Pricing</a></p>
+        <p><a href="">Project</a></p>
+        <p><a href="">Careers</a></p>
+        <p><a href="">Blog</a></p>
+        <p><a href="">Login</a></p>
+      </div>
+      <div class="useful-links">
+        <h6 class="fw-bold">Useful links</h6>
+        <p><a href="">Terms of </a></p>
+        <p><a href="">Services</a></p>
+        <p><a href="">Privacy Policy</a></p>
+        <p><a href="">Documentation</a></p>
+        <p><a href="">Changelog</a></p>
+        <p><a href="">Components</a></p>
+      </div>
+      <div class="newsletter">
+        <h6 class="fw-bold">Newsletter</h6>
+        <p class="text-muted">Sign up and receive the latest tips
+          via email.</p>
+          <form id="subscribe" action="">
+            <label for="email">Youre e-mail:</label>
+            <input type="email" placeholder="e-mail:" name="email" required>
+            <button type="submit" class="main-btn">Subscribe</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav-bg.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<script src="js/nav-bg.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var url_string = window.location.href;
+var url = new URL(url_string);
+var c = url.searchParams.get("id");
+var url3 = "http://127.0.0.1:3000/users/" + c;
+var xhr3 = new XMLHttpRequest();
+xhr3.open("GET", url3, true);
+
+xhr3.onload = function () {
+ if (xhr3.readyState == 4 && xhr3.status == 200) {
+   var articles = JSON.parse(xhr3.responseText);
+   document.getElementById("name").value = articles.name;
+   document.getElementById("surname").value = articles.surname;
+   document.getElementById("email").value = articles.email;
+   document.getElementById("password").value = articles.password ; 
+  // username
+   document.getElementById("username").innerHTML = articles.name + articles.surname ; 
+ } else {
+   console.log("error");
+ }
+};
+xhr3.send();
+
+function update() {
+ var url_string = window.location.href;
+ var url = new URL(url_string);
+ var c = url.searchParams.get("id");
+ var url4 = "http://127.0.0.1:3000/users/" + c;
+ var data = {};
+ data.name = document.getElementById("name").value; 
+    data.surname = document.getElementById("surname").value; 
+    data.email = document.getElementById("email").value; 
+    data.password = document.getElementById("password").value; 
+
+
+ var json = JSON.stringify(data);
+ var xhr = new XMLHttpRequest();
+ xhr.open("PUT", url4, true);
+ xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
+ xhr.onload = function () {
+   if (xhr.readyState == 4 && xhr.status == 200) {
+     var article = JSON.parse(xhr.responseText);
+     alert("user Updated");
+   } else {
+     alert("Error: " + xhr.statusText);
+   }
+ };
+ xhr.send(json);
+}
+
+ </script>
+</body>
+</html>

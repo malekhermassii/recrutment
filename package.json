@@ -1,0 +1,38 @@
+{
+  "name": "node-easy-notes-app",
+  "version": "1.0.0",
+  "description": "Never miss a thing in Life. Take notes quickly. Organize and keep track of all your notes.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon server.js"
+  },
+  "keywords": [
+    "Express",
+    "RestAPI",
+    "MongoDB",
+    "Mongoose",
+    "Notes"
+  ],
+  "author": "ChaabenGroup",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "connect-mongodb-session": "^3.1.1",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.9",
+    "express": "^4.16.3",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^5.2.8",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.3",
+    "nodemon": "^2.0.22",
+    "peer": "^1.0.0",
+    "peerjs": "^1.4.7",
+    "socket.io": "^4.6.2",
+    "socket.io-client": "^4.6.1",
+    "uuid": "^9.0.0"
+  }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Job</title>
+  </head>
+  <body>
+    <h4 id="title"></h4>
+    <h4 id="locationAddress"></h4>
+    <h4 id="postType"></h4>
+    <h4 id="missions"></h4>
+    <h4 id="skills"></h4>
+    <h4 id="workRequirements"></h4>
+    <h4 id="workTime"></h4>
+    <h4 id="missions"></h4>
+    <h4 id="domain"></h4>
+    <h4 id="salary"></h4>
+    <h4 id="image"></h4>
+    <!--View Job-->
+    <script>
+      var url_string = window.location.href;
+      var url = new URL(url_string);
+      var c = url.searchParams.get("id");
+
+      var url3 = "http://127.0.0.1:3000/jobs/" + c;
+      var xhr3 = new XMLHttpRequest();
+      xhr3.open("GET", url3, true);
+
+      xhr3.onload = function () {
+        var jobs = JSON.parse(xhr3.responseText);
+        if (xhr3.readyState == 4 && xhr3.status == "200") {
+          console.table(jobs);
+          document.getElementById("title").innerHTML =
+            "Job title : " + jobs.title;
+          document.getElementById("locationAddress").innerHTML =
+            "Job locationAddress : " + jobs.locationAddress;
+          document.getElementById("postType").innerHTML =
+            "Job postType : " + jobs.postType;
+            document.getElementById("missions").innerHTML =
+            "Job missions : " + jobs.missions;
+          document.getElementById("skills").innerHTML =
+            "Job skills : " + jobs.skills;
+          document.getElementById("workRequirements").innerHTML =
+            "Job workRequirements : " + jobs.workRequirements;
+            document.getElementById("workTime").innerHTML =
+            "Job workTime : " + jobs.workTime;
+          document.getElementById("missions").innerHTML =
+            "Job missions : " + jobs.missions;
+          document.getElementById("domain").innerHTML =
+            "Job domain : " + jobs.domain;
+            document.getElementById("salary").innerHTML =
+            "Job salary : " + jobs.salary;
+          document.getElementById("image").innerHTML =
+            "Job image : " + jobs.image;
+         
+        } else {
+          console.log("error");
+        }
+      };
+
+      xhr3.send(null);
+    </script>
+  </body>
+</html>

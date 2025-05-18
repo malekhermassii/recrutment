@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Summary</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1><span>Your</span> Summary</h1>
+    <form>
+      <label for="summary">Summary:</label>
+      <textarea type="text" id="summary" name="summary" style="height: 180px;" required></textarea>
+      <button type="submit">Next</button>
+    </form>
+    
+    <script>
+      const form = document.querySelector('form');
+      const summaryInput = form.querySelector('#summary');
+      
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const summaryData = summaryInput.value;
+        
+        // Store the form data in localStorage
+        localStorage.setItem('summaryData', JSON.stringify({ summaryData }));
+        
+        // Redirect to the next page
+        window.location.href = 'education.html';
+      });
+    </script>
+  </body>
+</html>
